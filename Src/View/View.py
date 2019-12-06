@@ -10,7 +10,7 @@ def index():
     return jsonify(Landing.view())
 
 
-@transaction.route('api/v1/order', methods=['POST'])
+@transaction.route('/api/v1/order', methods=['POST'])
 def order():
     if request.is_json:
         params = request.json.get('params', None)
