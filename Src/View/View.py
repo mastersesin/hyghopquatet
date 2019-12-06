@@ -13,7 +13,15 @@ def index():
 @transaction.route('/api/v1/order', methods=['POST'])
 def order():
     if request.is_json:
-        params = request.json.get('params', None)
+        name = request.json.get('name', None)
+        congty = request.json.get('congty', None)
+        email = request.json.get('email', None)
+        dienthoai = request.json.get('dienthoai', None)
+        diachi = request.json.get('diachi', None)
+        soluong = request.json.get('soluong', None)
+        ngaycanhang = request.json.get('ngaycanhang', None)
+        ghichukhac = request.json.get('ghichukhac', None)
+        params = [name, congty, email, dienthoai, diachi, soluong, ngaycanhang, ghichukhac]
         if params:
             return jsonify(Order.view(params=params))
         else:
